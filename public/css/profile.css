@@ -1,0 +1,277 @@
+/* Profile Page CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #faf9f7;
+    color: #21160f;
+}
+
+/* Main Page Layout */
+
+.profile-page {
+    min-height: 100vh;
+    background: #faf9f7;
+    padding: 60px 45px;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+
+.profile-header {
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.profile-header p {
+    color: #01050c;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 7px;
+    margin-bottom: 8px;
+}
+
+.profile-header h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 48px;
+    color: #1f1712;
+    font-weight: 700;
+}
+
+/* Main Content */
+
+.profile-content {
+    display: flex;
+    gap: 70px;
+    align-items: flex-start;
+}
+
+/* Left Photo Area */
+
+.profile-left {
+    width: 330px;
+    flex-shrink: 0;
+}
+
+.profile-photo-circle {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: #f3f6fa;
+    border: 1px solid #e0e6ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.profile-photo-circle span {
+    font-size: 36px;
+    color: #637794;
+}
+
+.profile-photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-upload-btn {
+    display: block;
+    width: 100%;
+    height: 52px;
+    border: 1px solid #d9e0ea;
+    border-radius: 4px;
+    background: #fbfaf8;
+    text-align: center;
+    line-height: 52px;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #21160f;
+    cursor: pointer;
+}
+
+.profile-upload-btn:hover {
+    border-color: #9d321f;
+    color: #9d321f;
+}
+
+/* Right Form Area */
+
+.profile-right {
+    flex: 1;
+}
+
+.profile-right h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f1712;
+    margin-bottom: 35px;
+}
+
+.profile-form {
+    width: 100%;
+}
+
+/* Form Design */
+
+.form-row {
+    display: flex;
+    gap: 22px;
+}
+
+.form-row .form-group {
+    width: 50%;
+}
+
+.form-group {
+    margin-bottom: 34px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #01050b;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #d9e0ea;
+    border-radius: 5px;
+    background: #fbfaf8;
+    font-size: 18px;
+    padding: 10px 13px;
+    outline: none;
+    color: #21160f;
+}
+
+.form-group input:focus {
+    border-color: #9d321f;
+    box-shadow: 0 0 0 2px rgba(157, 50, 31, 0.12);
+}
+
+/* Buttons */
+
+.profile-main-btn {
+    width: 210px;
+    height: 54px;
+    border: none;
+    border-radius: 4px;
+    background: #9d321f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: -8px;
+}
+
+.profile-main-btn:hover {
+    background: #852a1b;
+}
+
+/* Divider */
+
+.profile-divider {
+    width: 100%;
+    height: 1px;
+    background: #e0e6ef;
+    margin: 55px 0 35px;
+}
+
+/* Message Boxes */
+
+.success-box {
+    background: #e8f7ed;
+    border: 1px solid #6abf7b;
+    color: #216b35;
+    padding: 14px 18px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.error-box {
+    background: #ffe9e5;
+    border: 1px solid #d06b5c;
+    color: #8b2416;
+    padding: 14px 18px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.error-text {
+    display: block;
+    margin-top: 6px;
+    color: #b3261e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.input-error {
+    border-color: #b3261e !important;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 900px) {
+    .profile-page {
+        padding: 45px 20px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .profile-left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-photo-circle {
+        width: 260px;
+        height: 260px;
+    }
+
+    .profile-upload-btn {
+        max-width: 330px;
+    }
+
+    .profile-header h1 {
+        font-size: 38px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+    .profile-main-btn {
+        width: 100%;
+    }
+}
