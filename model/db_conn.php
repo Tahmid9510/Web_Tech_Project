@@ -199,6 +199,34 @@ public function updateUserPassword($userId, $passwordHash, $conn)
     return $result;
 }
 
+public function getFeaturedProducts($conn)
+{
+    $sql = "SELECT id, name, price, image_path, gender, category_id 
+            FROM products 
+            ORDER BY created_at DESC 
+            LIMIT 4";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        return [];
+    }
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $products = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $products[] = $row;
+    }
+
+    $stmt->close();
+
+    return $products;
+}
+
     public function closeConn($conn)
     {
         $conn->close();
