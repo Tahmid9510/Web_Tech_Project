@@ -131,17 +131,20 @@ body {
     background: #faf9f7;
     border: 1px solid #e0e6ef;
     border-radius: 12px 12px 0 0;
-    padding: 0 70px;
     color: #637794;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 0px;
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1.8fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
     gap: 70px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0;
+    padding:0;
 }
 
 .footer-brand h2 {
@@ -246,9 +249,6 @@ body {
 }
 
 .footer-policy {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0;
     margin-top: 10px;
 }
 
@@ -261,6 +261,11 @@ body {
 
 .footer-policy a:hover {
     color: #9d321f;
+}
+.social_logo{
+        height: 30px;
+    width: auto;
+    display: block;
 }
 
 /* Responsive */

@@ -62,5 +62,6 @@ include '../control/login_process.php';
 
     </div>
 </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>
