@@ -10,6 +10,7 @@ include '../control/registration_process.php';
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
+<?php include 'navbar.php'; ?>
 
 <div class="auth-page">
     <div class="auth-card">

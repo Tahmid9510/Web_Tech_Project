@@ -9,6 +9,7 @@ include '../control/profile_process.php';
     <link rel="stylesheet" href="../public/css/profile.css">
 </head>
 <body>
+<?php include 'navbar.php'; ?>
 
 <div class="profile-page">
     <div class="profile-container">
