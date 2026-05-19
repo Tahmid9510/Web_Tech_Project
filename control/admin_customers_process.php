@@ -1,5 +1,6 @@
 <?php
     include "../model/db_conn.php";
+    session_start();
 
     $myDB = new myDB();
     $conn = $myDB->createConn();
@@ -12,6 +13,7 @@
         }
     }
 
+    $totalCustomers = $myDB->getCount($conn, "users", "role = ?", ["customer"], "s");
     $customers = $myDB->getAllCustomers($conn);
 
 ?>

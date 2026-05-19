@@ -1,4 +1,4 @@
-body {
+main {
     font-family: Arial, sans-serif;
     width: 100%;
     max-width: 1200px;
@@ -10,10 +10,16 @@ h2 {
     margin: 50px 0 20px 0;
 }
 
+.total-customer p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
+    margin-bottom: 50px;
 }
 
 th,

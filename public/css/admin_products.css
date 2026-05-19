@@ -1,10 +1,10 @@
-body {
+main {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
     width: 100%;
     max-width: 1200px;
     margin: auto;
     padding: 0;
+    margin-bottom: 50px;
 }
 
 .header {
@@ -15,8 +15,10 @@ body {
 .product-cnt {
     padding-bottom: 10px;
 }
+
 .product-cnt p {
     font-size: 20px;
+    font-weight: bold;
 }
 
 .add-btn {
@@ -79,6 +81,7 @@ form {
     border-radius: 6px;
     margin-bottom: 20px;
 }
+
 .error {
     background: #fcdcdc;
     color: #651616;

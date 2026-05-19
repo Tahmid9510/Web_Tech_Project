@@ -1,4 +1,4 @@
-* {
+main {
     font-family: Arial, sans-serif;
     width: 100%;
     max-width: 1200px;
@@ -8,10 +8,8 @@
 
 
 /* product create */
-
 .container {
     margin: 30px auto;
-    background: #fff;
     padding: 40px;
     border-radius: 12px;
 }
@@ -24,8 +22,6 @@
     margin: 0;
     color: #222;
 }
-
-
 
 .row {
     display: flex;

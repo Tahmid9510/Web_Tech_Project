@@ -1,22 +1,18 @@
-* {
+main {
     font-family: Arial, sans-serif;
     width: 100%;
     max-width: 1200px;
     margin: auto;
     padding: 0;
     box-sizing: border-box;
+    margin-bottom: 50px;
 }
-
-/* navber */
-
-/* navber */
 
 .description {
     margin-top: 50px;
 }
 
 /* dashboard */
-
 .dashboard {
     margin-top: 50px;
 }
@@ -30,7 +26,8 @@
 .card-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* responsive */
+    gap: 20px;
+    flex-wrap: wrap; 
 }
 
 .card {
@@ -56,12 +53,3 @@
 .card.pending p {
     color: #e74c3c;
 }
-
-
-/* dashboard */
-
-
-/* Profile */
-
-
-/* Profile */
