@@ -14,7 +14,7 @@ $totalAmount = 0;
 $mydb = new MyDB();
 $conn = $mydb->createConn();
 
-// Load cart items for invoice display
+
 $userResult = $mydb->getUser($_SESSION["username"], $conn);
 $user_id = null;
 if($userResult->num_rows > 0){
@@ -31,7 +31,7 @@ if($cartResult->num_rows > 0){
     }
 }
 
-// Step 2: final submit – place the order
+
 if(isset($_POST["place_order"])){
     $payment_method = trim($_REQUEST["payment_method"]);
     $address = trim($_REQUEST["address"]);
