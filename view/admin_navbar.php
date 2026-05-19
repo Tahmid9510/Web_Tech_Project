@@ -6,8 +6,14 @@ if(session_status() === PHP_SESSION_NONE){
 $isLoggedIn = isset($_SESSION["user_id"]);
 $name = $isLoggedIn ? $_SESSION["name"] : "guest";
 $role = $isLoggedIn ? $_SESSION["role"] : "guest";
-$isLoggedIn = "customer";
 
+// uncomment after marge with main
+// if($role !== "admin"){
+//     session_unset();
+//     session_destroy();
+//     header("Location: login.php");
+//     exit;
+// }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['logout'])) {
