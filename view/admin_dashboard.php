@@ -1,25 +1,21 @@
 <?php
     include'../control/admin_dashboard_process.php';
     $name = "Suzit Datta";
-    $totalProducts = 20;
-    $totalCustomers = 20;
-    $totalOrders = 20;
-    $pendingOrders = 20;
+    $role = "Admin";
 ?>
 
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../public/admin_dashboard.css">
+    <link rel="stylesheet" href="../public/css/admin_dashboard.css">
 </head>
 <body>
     
     <!-- Navber -->
     <!-- Navber -->
-
     <div class="description">
         <h2>Welcome <?php echo $name;?></h2>
-        <p>Role: <?php echo $name;?></p>
+        <p>Role: <?php echo $role;?></p>
     </div>
     <div class="dashboard">
         <p>Dashboard</p>

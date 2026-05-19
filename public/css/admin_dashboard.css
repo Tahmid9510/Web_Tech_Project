@@ -15,7 +15,6 @@
     margin-top: 50px;
 }
 
-
 /* dashboard */
 
 .dashboard {
@@ -28,14 +27,12 @@
     font-size: 25px;
 }
 
-/* One-line layout */
 .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; /* responsive */
 }
 
-/* Card style */
 .card {
     background: white;
     width: 250px;
@@ -56,12 +53,13 @@
     color: #2c7be5;
 }
 
-/* Special card for pending orders */
 .card.pending p {
     color: #e74c3c;
 }
 
+
 /* dashboard */
+
 
 /* Profile */
 
