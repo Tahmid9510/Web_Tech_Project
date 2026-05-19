@@ -5,6 +5,6 @@
     $myDB = new myDB();
     $conn = $myDB->createConn();
 
-
     $sales = $myDB->getSalesHistory($conn);
+    $myDB->closeConn($conn);
 ?>

@@ -22,5 +22,5 @@
         header("Location: admin_products.php");
         exit;
     }
-
+    $myDB->closeConn($conn);
 ?>

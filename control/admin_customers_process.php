@@ -15,5 +15,6 @@
 
     $totalCustomers = $myDB->getCount($conn, "users", "role = ?", ["customer"], "s");
     $customers = $myDB->getAllCustomers($conn);
-
+    
+    $myDB->closeConn($conn);
 ?>

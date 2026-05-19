@@ -9,6 +9,7 @@
     $totalCustomers = $myDB->getCount($conn, "users", "role = ?", ["customer"], "s");
     $totalOrders = $myDB->getCount($conn, "orders");
     $pendingOrders = $myDB->getCount($conn, "orders", "status = ?", ["pending"], "s");
-
+    
+    $myDB->closeConn($conn);
     
 ?>

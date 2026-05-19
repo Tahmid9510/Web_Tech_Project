@@ -27,7 +27,6 @@ class myDB{
         if(!empty($condition)) {
             $sql .= " WHERE $condition";
         }
-        // Prepare statement
         $stmt = $conn->prepare($sql);
         if(!empty($params)) {
             $stmt->bind_param($types, ...$params);

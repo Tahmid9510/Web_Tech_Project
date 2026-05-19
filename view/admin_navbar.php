@@ -7,6 +7,8 @@ $isLoggedIn = isset($_SESSION["user_id"]);
 $name = $isLoggedIn ? $_SESSION["name"] : "guest";
 $role = $isLoggedIn ? $_SESSION["role"] : "guest";
 
+// $isLoggedIn = "admin";
+
 // uncomment after marge with main
 // if($role !== "admin"){
 //     session_unset();

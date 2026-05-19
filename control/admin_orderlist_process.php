@@ -23,4 +23,5 @@
             echo "Order already " . ($row['status'] ?? 'unknown');
         }
     }
+    $myDB->closeConn($conn);
 ?>
