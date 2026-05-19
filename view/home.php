@@ -11,7 +11,7 @@ $products = $model->searchProducts();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étoffe Home</title>
+    <title>StyleNest Home</title>
 
     <link rel="stylesheet" href="../public/css/nav_footer.css">
     <link rel="stylesheet" href="../public/css/task3.css">
