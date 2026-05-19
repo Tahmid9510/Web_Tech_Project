@@ -28,7 +28,7 @@ $role = $isLoggedIn ? $_SESSION["role"] : "guest";
     </div>
 
     <div class="nav-search">
-        <input type="text" placeholder="Search products...">
+        <input type="text" id="searchInput" placeholder="Search products...">
     </div>
 
     <div class="nav-account">

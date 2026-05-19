@@ -1,0 +1,156 @@
+/* Gender Collection Page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #faf9f7;
+    color: #21160f;
+}
+
+.gender-page {
+    width: 100%;
+    min-height: 80vh;
+    background: #faf9f7;
+    padding: 70px 70px 90px;
+}
+
+.gender-header {
+    max-width: 1500px;
+    margin: 0 auto 45px;
+}
+
+.gender-header p {
+    color: #637794;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 7px;
+    margin-bottom: 12px;
+}
+
+.gender-header h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 58px;
+    color: #1f1712;
+    font-weight: 700;
+}
+
+/* Category Buttons */
+
+.category-buttons {
+    max-width: 1500px;
+    margin: 0 auto 45px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    min-width: 120px;
+    height: 52px;
+    border: 1px solid #d9e0ea;
+    border-radius: 4px;
+    background: #fbfaf8;
+    color: #21160f;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.category-btn:hover,
+.active-category {
+    border-color: #9d321f;
+    color: #9d321f;
+}
+
+/* Product Grid */
+
+.gender-products {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.product-card {
+    width: 100%;
+}
+
+.product-image-box {
+    width: 100%;
+    height: 390px;
+    background: #f3f6fa;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.product-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card h3 {
+    font-size: 17px;
+    color: #1f1712;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    color: #637794;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.no-products {
+    font-size: 18px;
+    color: #637794;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1100px) {
+    .gender-page {
+        padding: 55px 35px 70px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .gender-page {
+        padding: 45px 20px 60px;
+    }
+
+    .gender-header h1 {
+        font-size: 44px;
+    }
+
+    .category-btn {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image-box {
+        height: 360px;
+    }
+}

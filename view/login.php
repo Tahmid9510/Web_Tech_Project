@@ -6,7 +6,7 @@ include '../control/login_process.php';
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/auth.css">
 </head>
 <body>
 <?php include 'navbar.php'; ?>

@@ -1,40 +1,11 @@
 <?php
 include '../control/home_process.php';
-
-function showProductImage($imagePath)
-{
-    if (!empty($imagePath)) {
-        if (strpos($imagePath, 'public/') === 0) {
-            return '../' . $imagePath;
-        } else {
-            return '../public/image/' . $imagePath;
-        }
-    }
-
-    return '../public/image/product-placeholder.jpg';
-}
-
-function showPrice($price)
-{
-    $price = trim($price);
-
-    if ($price === '') {
-        return '';
-    }
-
-    if (strpos($price, '$') !== false || strpos($price, '৳') !== false) {
-        return $price;
-    }
-
-    return '$' . $price;
-}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home - StyleNest</title>
-    <!-- <link rel="stylesheet" href="../public/css/layout.css"> -->
     <link rel="stylesheet" href="../public/css/home.css">
 </head>
 <body>
@@ -77,7 +48,7 @@ function showPrice($price)
                 <?php foreach ($featuredProducts as $product) { ?>
 
                     <div class="product-card">
-                        <a href="product_details.php?id=<?php echo htmlspecialchars($product['id']); ?>">
+                        <a>
                             <div class="product-image-box">
                                 <img 
                                     src="<?php echo htmlspecialchars(showProductImage($product['image_path'])); ?>" 
@@ -87,7 +58,7 @@ function showPrice($price)
                         </a>
 
                         <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-                        <p><?php echo htmlspecialchars(showPrice($product['price'])); ?></p>
+                        <p><?php echo "$".htmlspecialchars($product['price']); ?></p>
                     </div>
 
                 <?php } ?>

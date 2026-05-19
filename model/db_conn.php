@@ -227,6 +227,116 @@ public function getFeaturedProducts($conn)
     return $products;
 }
 
+// Home -Gender Page
+public function getParentCategoryByName($categoryName, $conn)
+{
+    $sql = "SELECT id, name FROM categories WHERE name = ? AND parent_id IS NULL LIMIT 1";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        return false;
+    }
+
+    $stmt->bind_param("s", $categoryName);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $category = $result->fetch_assoc();
+
+    $stmt->close();
+
+    return $category;
+}
+
+
+public function getChildCategories($parentId, $conn)
+{
+    $sql = "SELECT id, name FROM categories WHERE parent_id = ? ORDER BY name ASC";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        return [];
+    }
+
+    $stmt->bind_param("i", $parentId);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $categories = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $categories[] = $row;
+    }
+
+    $stmt->close();
+
+    return $categories;
+}
+
+
+public function getProductsByGender($gender, $conn)
+{
+    $sql = "SELECT id, name, description, size_chart, price, category_id, image_path, stock, gender 
+            FROM products 
+            WHERE gender = ? 
+            ORDER BY created_at DESC";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        return [];
+    }
+
+    $stmt->bind_param("s", $gender);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $products = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $products[] = $row;
+    }
+
+    $stmt->close();
+
+    return $products;
+}
+
+
+public function getProductsByCategoryAndGender($categoryId, $gender, $conn)
+{
+    $sql = "SELECT id, name, description, size_chart, price, category_id, image_path, stock, gender 
+            FROM products 
+            WHERE category_id = ? AND gender = ? 
+            ORDER BY created_at DESC";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        return [];
+    }
+
+    $stmt->bind_param("is", $categoryId, $gender);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $products = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $products[] = $row;
+    }
+
+    $stmt->close();
+
+    return $products;
+}
+
+
     public function closeConn($conn)
     {
         $conn->close();

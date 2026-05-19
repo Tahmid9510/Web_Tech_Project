@@ -4,10 +4,6 @@ include '../model/db_conn.php';
 
 session_start();
 
-/*
-    Session gate:
-    If user is not logged in, redirect to login page.
-*/
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();

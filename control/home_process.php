@@ -2,6 +2,19 @@
 
 include '../model/db_conn.php';
 
+function showProductImage($imagePath)
+{
+    if (!empty($imagePath)) {
+        if (strpos($imagePath, 'public/') === 0) {
+            return '../' . $imagePath;
+        } else {
+            return '../public/image/' . $imagePath;
+        }
+    }
+
+    return '../public/image/product-placeholder.jpg';
+}
+
 $mydb = new MyDB();
 $conn = $mydb->createConn();
 
