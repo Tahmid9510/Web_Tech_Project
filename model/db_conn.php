@@ -182,6 +182,23 @@ class myDB{
         return $stmt->execute();
     }
 
+    function getSalesHistory($conn) {
+        $status = "confirmed";
+        $sql = "SELECT orders.id, users.name, orders.total_amount, orders.order_date
+                FROM orders JOIN users ON orders.user_id = users.id
+                WHERE orders.status = ?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $status);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = [];
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
 
     function closeConn($conn){
         $conn->close();

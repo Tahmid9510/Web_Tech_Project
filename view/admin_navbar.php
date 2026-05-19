@@ -1,5 +1,5 @@
 <?php
-if(session_status() === PHP_SESSION_NONE) {
+if(session_status() === PHP_SESSION_NONE){
     session_start();
 }
 
@@ -9,7 +9,7 @@ $role = $isLoggedIn ? $_SESSION["role"] : "guest";
 $isLoggedIn = "customer";
 
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST['logout'])) {
         session_unset();
         session_destroy();
@@ -30,6 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="nav-links">
         <a href="admin_products.php">Products</a>
         <a href="admin_customers.php">Customers</a>
+        <a href="admin_history.php">Sales</a>
 
         <?php if ($role === "customer") { ?>
             <a href="orders.php">My Orders</a>
