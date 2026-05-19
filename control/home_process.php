@@ -12,7 +12,7 @@ function showProductImage($imagePath)
         }
     }
 
-    return '../public/image/product-placeholder.jpg';
+    return '../public/image/product-placeholder.png';
 }
 
 $mydb = new MyDB();

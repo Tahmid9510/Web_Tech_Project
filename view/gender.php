@@ -28,7 +28,7 @@ if (!isset($categories)) {
         <?php foreach ($categories as $category) { ?>
 
             <a 
-                href="gender.php?gender=<?php echo urlencode($gender); ?>&category_id=<?php echo htmlspecialchars($category['id']); ?>" 
+                href="gender.php?gender=<?php echo htmlspecialchars($gender); ?>&category_id=<?php echo htmlspecialchars($category['id']); ?>" 
                 class="category-btn <?php echo ($selectedCategoryId == $category['id']) ? 'active-category' : ''; ?>"
             >
                 <?php echo htmlspecialchars(strtoupper($category["name"])); ?>

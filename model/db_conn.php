@@ -72,7 +72,7 @@ class MyDB
     }
 
     public function getUserById($userId, $conn)
-{
+    {
     $sql = "SELECT * FROM users WHERE id = ?";
 
     $stmt = $conn->prepare($sql);
@@ -92,7 +92,7 @@ class MyDB
     $stmt->close();
 
     return $user;
-}
+    }
 
 
 public function isEmailUsedByAnotherUser($email, $userId, $conn)
