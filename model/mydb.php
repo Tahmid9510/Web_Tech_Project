@@ -10,7 +10,7 @@ $conn = new mysqli($DBHOST, $DBUSER, $DBPASS, $DBNAME);
 return $conn;
 }
 
-// ── existing user methods (kept for session compatibility) ──────────────
+
 
 function createUser($username, $email, $password,$file,$conn){
 $sql="INSERT INTO users (username, email, password, file) VALUES ('$username', '$email', '$password', '$file')";
@@ -32,7 +32,7 @@ $sql="SELECT * FROM users WHERE username='$username' ";
 return $conn->query($sql);
 }
 
-// ── cart ────────────────────────────────────────────────────────────────
+
 
 function getCartByUser($user_id, $conn){
 $sql="SELECT c.id, c.product_id, c.quantity, p.name, p.price, p.image_path, p.stock
@@ -47,7 +47,7 @@ $sql="DELETE FROM cart WHERE user_id = '$user_id'";
 return $conn->query($sql);
 }
 
-// ── orders ──────────────────────────────────────────────────────────────
+
 
 function createOrder($user_id, $total_amount, $conn){
 $sql="INSERT INTO orders (user_id, total_amount, status) VALUES ('$user_id', '$total_amount', 'pending')";
@@ -78,7 +78,7 @@ $sql="SELECT oi.quantity, oi.unit_price, p.name, p.image_path
 return $conn->query($sql);
 }
 
-// ── payments ────────────────────────────────────────────────────────────
+
 
 function createPayment($order_id, $amount, $payment_method, $transaction_id, $conn){
 $sql="INSERT INTO payments (order_id, amount, payment_method, transaction_id) VALUES ('$order_id', '$amount', '$payment_method', '$transaction_id')";
@@ -90,7 +90,7 @@ $sql="SELECT * FROM payments WHERE order_id = '$order_id'";
 return $conn->query($sql);
 }
 
-// ── AJAX order status ────────────────────────────────────────────────────
+
 
 function getOrderStatus($order_id, $conn){
 $sql="SELECT id, status, total_amount, order_date FROM orders WHERE id = '$order_id'";
