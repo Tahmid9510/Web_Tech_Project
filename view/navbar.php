@@ -11,7 +11,7 @@ $role = $isLoggedIn ? $_SESSION["role"] : "guest";
 
 <nav class="main-navbar">
     <div class="nav-logo">
-        <a href="home.php">Étoffe</a>
+        <a href="home.php">StyleNest</a>
     </div>
 
     <div class="nav-links">

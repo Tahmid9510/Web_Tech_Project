@@ -33,7 +33,7 @@ function showPrice($price)
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home - Étoffe</title>
+    <title>Home - StyleNest</title>
     <!-- <link rel="stylesheet" href="../public/css/layout.css"> -->
     <link rel="stylesheet" href="../public/css/home.css">
 </head>

@@ -4,7 +4,7 @@
     <div class="footer-container">
 
         <div class="footer-brand">
-            <h2>Étoffe</h2>
+            <h2>StyleNest</h2>
             <p>
                 Timeless garments crafted from considered fabrics.
                 Designed to last, made to be lived in.
@@ -16,7 +16,7 @@
                 <span><img src="../public/image/twitter.png" alt="" class="social_logo"></span>
             </div>
 
-            <p class="footer-copy">2026 Étoffe. All rights reserved.</p>
+            <p class="footer-copy">2026 StyleNest. All rights reserved.</p>
         </div>
 
         <div class="footer-column">
