@@ -9,23 +9,16 @@ main {
 }
 
 h2 {
-    margin: 20px 0 20px 0;
-}
-
-.total-customer p {
-    font-size: 18px;
-    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    margin-bottom: 50px;
 }
 
-th,
-td {
+th, td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: center;
@@ -36,14 +29,21 @@ th {
     color: white;
 }
 
-img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 50%;
+tr:nth-child(even) {
+    background: #f9f9f9;
 }
 
-.deleteBtn {
+.confirmBtn {
+    background: green;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.rejectBtn {
     background: red;
     color: white;
     border: none;

@@ -28,7 +28,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
 
     <div class="nav-links">
+        <a href="admin_dashboard.php">Dashboard</a>
         <a href="admin_products.php">Products</a>
+        <a href="admin_orderlist.php">Orders</a>
         <a href="admin_customers.php">Customers</a>
         <a href="admin_history.php">Sales</a>
 
@@ -48,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <div class="nav-account">
 
         <?php if($isLoggedIn) { ?>
-            <a href="admin_dashboard.php" class="account-link">Dashboard</a>
+            <a href="profile.php" class="account-link">Profile</a>
             <form method="POST">
                 <input type="hidden" name="logout" value = "1">
                 <button class="logout-btn" onclick="return confirm('Sure you want to logout?')">Logout</button>

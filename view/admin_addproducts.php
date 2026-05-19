@@ -22,7 +22,7 @@
                 <p class="error"><?php echo $error; ?></p>
             <?php } ?>
     
-            <form method="POST" enctype="multipart/form-data">
+            <form id="productForm" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="input-group">
                         <label>Product Name</label>
@@ -101,5 +101,7 @@
     <!-- Footer -->
     <?php include "admin_footer.php"; ?>
     <!-- Footer -->
+
+    <script src="../public/js/script.js"></script>
 </body>
 </html>

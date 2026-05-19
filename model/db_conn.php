@@ -58,7 +58,8 @@ class myDB{
         $stmt->execute();
         $result = $stmt->get_result();
         $data = [];
-        while ($row = $result->fetch_assoc()) {
+
+        foreach($result as $row){
             $data[] = $row;
         }
         return $data;
@@ -113,15 +114,8 @@ class myDB{
                     WHERE id=?";
 
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param( "sssissssi", $data['name'], $data['price'],
-                $data['category_id'],
-                $data['stock'],
-                $data['gender'],
-                $data['size_chart'],
-                $data['description'],
-                $imagePath,
-                $data['id']
-            );
+            $stmt->bind_param( "sssissssi", $data['name'], $data['price'], $data['category_id'], $data['stock'],
+                $data['gender'], $data['size_chart'], $data['description'], $imagePath, $data['id']);
 
         } 
         else {
@@ -129,17 +123,8 @@ class myDB{
                     WHERE id=?";
 
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param(
-                "sssisssi",
-                $data['name'],
-                $data['price'],
-                $data['category_id'],
-                $data['stock'],
-                $data['gender'],
-                $data['size_chart'],
-                $data['description'],
-                $data['id']
-            );
+            $stmt->bind_param("sssisssi", $data['name'], $data['price'], $data['category_id'], $data['stock'],
+                $data['gender'], $data['size_chart'], $data['description'], $data['id'] );
         }
         return $stmt->execute();
     }
@@ -155,7 +140,8 @@ class myDB{
         $stmt->execute();
         $result = $stmt->get_result();
         $data = [];
-        while ($row = $result->fetch_assoc()) {
+
+        foreach($result as $row){
             $data[] = $row;
         }
         return $data;
@@ -184,21 +170,46 @@ class myDB{
 
     function getSalesHistory($conn) {
         $status = "confirmed";
-        $sql = "SELECT orders.id, users.name, orders.total_amount, orders.order_date
-                FROM orders JOIN users ON orders.user_id = users.id
-                WHERE orders.status = ?";
-
+        $sql = "SELECT orders.id, users.name, orders.total_amount, orders.order_date FROM orders
+            JOIN users ON orders.user_id = users.id WHERE orders.status = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $status);
         $stmt->execute();
         $result = $stmt->get_result();
         $data = [];
-        while($row = $result->fetch_assoc()) {
+
+        foreach($result as $row){
             $data[] = $row;
         }
         return $data;
     }
 
+    function getAllOrders($conn) {
+        $sql = "SELECT orders.id, users.name, orders.total_amount, orders.order_date, orders.status
+            FROM orders JOIN users ON orders.user_id = users.id WHERE users.role = ?";
+
+
+        $stmt = $conn->prepare($sql);
+        $role = "customer";
+        $stmt->bind_param("s", $role);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = [];
+
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        return $data;
+    }
+
+
+    function updateOrderStatus($conn, $id, $status) {
+        $sql = "UPDATE orders SET status = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $status, $id);
+        return $stmt->execute();
+    }
 
     function closeConn($conn){
         $conn->close();
