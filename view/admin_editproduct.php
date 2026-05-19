@@ -15,7 +15,6 @@
                 <label>Product Name</label>
                 <input type="text" name="name" value="<?= $product['name'] ?>" required>
             </div>
-
             <div class="input-group">
                 <label>Price</label>
                 <input type="text" name="price" value="<?= $product['price'] ?>" required>
@@ -31,7 +30,6 @@
                             <?= ($product['category_id'] == $category['name']) ? 'selected' : '' ?>>
                             <?= $category['name'] ?>
                         </option>
-
                     <?php } ?>
                 </select>
             </div>

@@ -15,7 +15,7 @@
             $imageName = time() . "_" . $_FILES['image']['name'];
             $tmp = $_FILES['image']['tmp_name'];
             move_uploaded_file($tmp, "../public/uploads/" . $imageName);
-            $imagePath = $imageName;
+            $imagePath = "../public/uploads/" . $imageName;
         }
         $data = [ 
             "id" => $id, "name" => $_POST['name'], "price" => $_POST['price'], "category_id" => $_POST['category'],

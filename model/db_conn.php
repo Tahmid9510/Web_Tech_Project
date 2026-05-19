@@ -15,7 +15,6 @@ class myDB{
     function insertProduct($conn, $name, $description, $size_chart, $price, $category_id, $image_path, $stock, $gender){
         $sql = "INSERT INTO products (name, description, size_chart, price, category_id, image_path, stock, gender, created_at)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-        // Prepare
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssssssis", $name, $description, $size_chart, $price, $category_id, $image_path, $stock, $gender);
         $result = $stmt->execute();
@@ -75,6 +74,19 @@ class myDB{
     }
 
     function deleteProduct($conn, $id) {
+        $sql = "SELECT image_path FROM products WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        if($row && !empty($row['image_path'])) {
+            $filePath = $row['image_path'];
+            if(file_exists($filePath)) {
+                unlink($filePath);
+            }
+        }
         $sql = "DELETE FROM products WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
@@ -82,19 +94,53 @@ class myDB{
     }
 
     function updateProduct($conn, $data, $imagePath = null) {
-        $sql = "UPDATE products SET name=?, price=?, category_id=?, stock=?, gender=?, size_chart=?, description=?";
-        if($imagePath !== null) {
-            $sql .= ", image_path=?";
-        }
-        $sql .= " WHERE id=?";
+        $sql = "SELECT image_path FROM products WHERE id = ?";
         $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $data['id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $oldImage = $row['image_path'];
+
         if($imagePath !== null) {
-            $stmt->bind_param("sssissssi", $data['name'], $data['price'], $data['category_id'], $data['stock'], $data['gender'], $data['size_chart'], $data['description'], $imagePath, $data['id']);
+            if (!empty($oldImage)) {
+                if(file_exists($oldImage)) {
+                    unlink($oldImage);
+                }
+            }
+
+            $sql = "UPDATE products SET name=?, price=?, category_id=?, stock=?, gender=?, size_chart=?, description=?, image_path=? 
+                    WHERE id=?";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param( "sssissssi", $data['name'], $data['price'],
+                $data['category_id'],
+                $data['stock'],
+                $data['gender'],
+                $data['size_chart'],
+                $data['description'],
+                $imagePath,
+                $data['id']
+            );
+
         } 
         else {
-            $stmt->bind_param("sssisssi", $data['name'], $data['price'], $data['category'], $data['stock'], $data['gender'], $data['size_chart'], $data['description'], $data['id']);
-        }
+            $sql = "UPDATE products SET name=?, price=?, category_id=?, stock=?, gender=?, size_chart=?, description=? 
+                    WHERE id=?";
 
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "sssisssi",
+                $data['name'],
+                $data['price'],
+                $data['category_id'],
+                $data['stock'],
+                $data['gender'],
+                $data['size_chart'],
+                $data['description'],
+                $data['id']
+            );
+        }
         return $stmt->execute();
     }
 
