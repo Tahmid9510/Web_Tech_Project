@@ -51,8 +51,8 @@ if (isset($_POST['login'])) {
                 <input type="submit" name="login" value="SIGN IN" class="btn btn-login">
             </div>
 
-            <p class="text-center" style="font-size:13px; color:#888;">
-                Don't have an account? <a href="#" style="color:#8b2500; font-weight:600;">Create account</a>
+            <p class="login-footer-text">
+                Don't have an account? <a href="#" class="login-link">Create account</a>
             </p>
         </form>
     </div>
