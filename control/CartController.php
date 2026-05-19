@@ -1,7 +1,7 @@
 <?php
-require_once '../model/config.php';
-require_once '../model/CartModel.php';
-require_once '../model/ProductModel.php';
+require_once __DIR__ . '/../model/config.php';
+require_once __DIR__ . '/../model/CartModel.php';
+require_once __DIR__ . '/../model/ProductModel.php';
 
 class CartController {
     private $cartModel;
@@ -12,7 +12,6 @@ class CartController {
         $this->productModel = new ProductModel($conn);
     }
 
-    // Add a product to cart
     public function addToCart($user_id, $product_id, $quantity) {
         $product_id = (int)$product_id;
         $quantity   = (int)$quantity;
@@ -29,7 +28,7 @@ class CartController {
             return ['success' => false, 'message' => 'Not enough stock.'];
         }
 
-        // If already in cart, increase quantity. Otherwise insert new row.
+    
         $existing = $this->cartModel->getCartItem($user_id, $product_id);
         if ($existing) {
             $newQty = $existing['quantity'] + $quantity;
@@ -45,7 +44,6 @@ class CartController {
         ];
     }
 
-    // Update quantity of a cart item
     public function updateQuantity($user_id, $cart_id, $quantity) {
         $quantity = (int)$quantity;
         if ($quantity < 1) {
@@ -58,16 +56,15 @@ class CartController {
         ];
     }
 
-    // Remove an item from cart
     public function removeFromCart($user_id, $cart_id) {
-        $this->cartModel->removeItem((int)$cart_id, $user_id);
-        return [
-            'success'    => true,
-            'cart_count' => $this->cartModel->getCartCount($user_id)
-        ];
-    }
+    $this->cartModel->removeItem((int)$cart_id, $user_id);
 
-    // Load the cart page
+    return [
+        'success' => true,
+        'cart_count' => $this->cartModel->getCartCount($user_id)
+    ];
+}
+
     public function showCart($user_id) {
         $cartItems = $this->cartModel->getCartItems($user_id);
         require_once '../view/cart.php';

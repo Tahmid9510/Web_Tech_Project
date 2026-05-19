@@ -1,6 +1,6 @@
 <?php
-require_once '../model/config.php';
-require_once '../model/ProductModel.php';
+require_once __DIR__ . '/../model/config.php';
+require_once __DIR__ . '/../model/ProductModel.php';
 
 class SearchController {
     private $productModel;
@@ -9,7 +9,6 @@ class SearchController {
         $this->productModel = new ProductModel($conn);
     }
 
-    // Search and return matching products
     public function search($q, $category, $gender) {
         $q        = trim(htmlspecialchars($q));
         $category = trim($category);
@@ -18,7 +17,6 @@ class SearchController {
         return $this->productModel->searchProducts($q, $category, $gender);
     }
 
-    // Return all categories
     public function getCategories() {
         return $this->productModel->getAllCategories();
     }

@@ -1,5 +1,4 @@
 <?php
-// $product variable comes from ProductController::showProduct()
 if (session_status() === PHP_SESSION_NONE) session_start();
 $isLoggedIn = isset($_SESSION["user_id"]);
 $role       = $isLoggedIn ? $_SESSION["role"] : "guest";
@@ -18,7 +17,6 @@ $stock      = (int)$product['stock'];
 
 <?php include 'navbar.php'; ?>
 
-<!-- Breadcrumb -->
 <div class="breadcrumb">
     <a href="home.php">Home</a> › 
     <a href="gender.php?gender=<?= urlencode($product['gender']) ?>">
@@ -27,16 +25,13 @@ $stock      = (int)$product['stock'];
     <?= htmlspecialchars($product['name']) ?>
 </div>
 
-<!-- Product Layout -->
 <div class="product-page">
 
-    <!-- Left: Product Image -->
     <div class="product-image">
         <img src="../public/uploads/products/<?= htmlspecialchars($product['image_path']) ?>"
              alt="<?= htmlspecialchars($product['name']) ?>">
     </div>
 
-    <!-- Right: Product Info -->
     <div class="product-info">
 
         <p class="product-meta">
@@ -48,7 +43,6 @@ $stock      = (int)$product['stock'];
 
         <p class="product-price">৳<?= number_format($product['price'], 2) ?></p>
 
-        <!-- Stock label -->
         <?php if ($stock === 0): ?>
             <span class="stock-badge out">Out of Stock</span>
         <?php elseif ($stock < 5): ?>
@@ -57,7 +51,6 @@ $stock      = (int)$product['stock'];
             <span class="stock-badge">In Stock</span>
         <?php endif; ?>
 
-        <!-- Description -->
         <?php if (!empty($product['description'])): ?>
         <div class="product-section">
             <h4>Description</h4>
@@ -65,7 +58,6 @@ $stock      = (int)$product['stock'];
         </div>
         <?php endif; ?>
 
-        <!-- Size Chart -->
         <?php if (!empty($product['size_chart'])): ?>
         <div class="product-section">
             <h4>Size Chart</h4>
@@ -73,7 +65,6 @@ $stock      = (int)$product['stock'];
         </div>
         <?php endif; ?>
 
-        <!-- Add to Cart (only for logged-in customers) -->
         <?php if ($stock > 0 && $isLoggedIn && $role === 'customer'): ?>
         <div class="add-to-cart">
             <div class="qty-control">
@@ -105,7 +96,6 @@ $stock      = (int)$product['stock'];
 
 <script src="../public/js/cart.js"></script>
 <script>
-    // Simple quantity +/- buttons
     function changeQty(change) {
         const input = document.getElementById('quantity');
         const max   = parseInt(input.max);

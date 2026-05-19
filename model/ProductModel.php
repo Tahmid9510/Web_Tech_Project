@@ -1,5 +1,4 @@
 <?php
-// Handles all database queries for products
 
 class ProductModel {
     private $conn;
@@ -8,7 +7,6 @@ class ProductModel {
         $this->conn = $conn;
     }
 
-    // Search products with optional filters
     public function searchProducts($q = '', $category = '', $gender = '') {
         $sql = "SELECT p.*, c.name AS category_name 
                 FROM products p 
@@ -34,7 +32,6 @@ class ProductModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Get one product by ID
     public function getProductById($id) {
         $stmt = $this->conn->prepare(
             "SELECT p.*, c.name AS category_name 
@@ -46,7 +43,6 @@ class ProductModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Get all categories for the filter dropdown
     public function getAllCategories() {
         $stmt = $this->conn->query("SELECT * FROM categories ORDER BY name ASC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

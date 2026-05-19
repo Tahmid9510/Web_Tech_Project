@@ -1,5 +1,4 @@
 <?php
-// $cartItems comes from CartController::showCart()
 if (session_status() === PHP_SESSION_NONE) session_start();
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -27,13 +26,11 @@ foreach ($cartItems as $item) {
 <div class="cart-container">
     <h2 class="page-title">
         Your Cart
-        <?php if (!empty($cartItems)): ?>
-            <span class="item-count">(<?= count($cartItems) ?> item<?= count($cartItems) > 1 ? 's' : '' ?>)</span>
-        <?php endif; ?>
+        
     </h2>
 
     <?php if (empty($cartItems)): ?>
-    <!-- Empty cart message -->
+
     <div class="cart-empty">
         <p>Your cart is empty.</p>
         <a href="home.php" class="btn-primary">Continue Shopping</a>
@@ -41,7 +38,6 @@ foreach ($cartItems as $item) {
 
     <?php else: ?>
 
-    <!-- Cart Items Table -->
     <table class="cart-table">
         <thead>
             <tr>
@@ -56,7 +52,6 @@ foreach ($cartItems as $item) {
         <?php foreach ($cartItems as $item): ?>
             <tr id="cart-row-<?= $item['id'] ?>">
 
-                <!-- Product name + image -->
                 <td>
                     <div class="cart-product-cell">
                         <img src="../public/uploads/products/<?= htmlspecialchars($item['image_path']) ?>"
@@ -65,10 +60,10 @@ foreach ($cartItems as $item) {
                     </div>
                 </td>
 
-                <!-- Unit price -->
+                
                 <td>৳<?= number_format($item['price'], 2) ?></td>
 
-                <!-- Quantity controls -->
+               
                 <td>
                     <div class="qty-control">
                         <button class="qty-btn"
@@ -82,13 +77,13 @@ foreach ($cartItems as $item) {
                     </div>
                 </td>
 
-                <!-- Subtotal for this row -->
+                
                 <td id="subtotal-<?= $item['id'] ?>"
                     data-price="<?= $item['price'] ?>">
                     ৳<?= number_format($item['price'] * $item['quantity'], 2) ?>
                 </td>
 
-                <!-- Remove button -->
+                
                 <td>
                     <button class="remove-btn"
                             data-cart-id="<?= $item['id'] ?>">✕</button>
@@ -98,7 +93,6 @@ foreach ($cartItems as $item) {
         </tbody>
     </table>
 
-    <!-- Order Summary -->
     <div class="cart-summary">
         <h3>Order Summary</h3>
         <div class="summary-row">
@@ -113,7 +107,7 @@ foreach ($cartItems as $item) {
             <span>Total</span>
             <span>৳<span id="cartGrandTotal"><?= number_format($total, 2) ?></span></span>
         </div>
-        <!-- Change checkout.php to whatever Task 4 names their file -->
+        
         <a href="checkout.php" class="btn-primary" style="display:block;text-align:center;margin-top:18px;">
             PROCEED TO CHECKOUT
         </a>
