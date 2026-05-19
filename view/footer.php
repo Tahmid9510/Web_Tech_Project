@@ -21,8 +21,8 @@
 
         <div class="footer-column">
             <h3>Shop</h3>
-            <a>Men</a>
-            <a>Women</a>
+            <a href="gender.php?gender=Men">Men</a>
+            <a href="gender.php?gender=Women">Women</a>
             <a>New Arrivals</a>
             <a>Sale</a>
         </div>
