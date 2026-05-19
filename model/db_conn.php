@@ -145,6 +145,44 @@ class myDB{
     }
 
 
+    // customers query 
+
+    function getAllCustomers($conn) {
+        $sql = "SELECT * FROM users WHERE role = ?";
+        $stmt = $conn->prepare($sql);
+        $role = "customer";
+        $stmt->bind_param("s", $role);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+    function deleteCustomer($conn, $id) {
+        $sql = "SELECT profile_picture FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $image = $row['profile_picture'];
+
+        if(!empty($image)) {
+            if (file_exists($image)) {
+                unlink($image);
+            }
+        }
+
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
+    }
+
+
     function closeConn($conn){
         $conn->close();
     }

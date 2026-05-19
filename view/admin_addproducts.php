@@ -1,11 +1,10 @@
 <?php
     include'../control/admin_addproducts_process.php';
-    
 ?>
 
 <html>
 <head>
-    <title>Add Product</title>
+    <title>Add Products</title>
     <link rel="stylesheet" href="../public/css/admin_addproducts.css">
 </head>
 <body>
