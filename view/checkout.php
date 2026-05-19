@@ -95,7 +95,7 @@ include '../control/checkout_process.php';
                 <div class="card-body">
 
                     
-                    <div class="summary-row" style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#888; font-weight:600;">
+                    <div class="summary-row summary-header">
                         <span>Product</span>
                         <span>Subtotal</span>
                     </div>
@@ -133,7 +133,7 @@ include '../control/checkout_process.php';
                 <p>1. No return or exchange shall be applicable for any discounted sale items.</p>
                 <p>2. Your order may arrive in multiple shipments depending on warehouse locations.</p>
                 <p>3. For Cash on Delivery (COD) orders, make payment only after receiving the product.</p>
-                <p style="color:#e67e22; margin-top:8px;">By clicking "Place Order", you agree to our Terms & Conditions.</p>
+                <p class="disclaimer-highlight">By clicking "Place Order", you agree to our Terms & Conditions.</p>
             </div>
 
         </div>
