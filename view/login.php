@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 
-<!-- Navbar -->
+
 <div class="navbar">
     <a href="../view/Home.php" class="logo">StyleNest</a>
     <div class="nav-links">
@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
     </div>
 </div>
 
-<!-- Login Form -->
+
 <div class="login-container">
     <h1 class="page-title">Sign in</h1>
 
