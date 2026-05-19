@@ -8,7 +8,7 @@ include '../control/checkout_process.php';
 </head>
 <body>
 
-<!-- Navbar -->
+
 <div class="navbar">
     <a href="../view/Home.php" class="logo">StyleNest</a>
     <div class="nav-links">
@@ -35,12 +35,12 @@ include '../control/checkout_process.php';
 
     <div class="checkout-layout">
 
-        <!-- LEFT: Shipping + Payment -->
+        
         <div class="checkout-main">
 
             <form action="" method="post" onsubmit="return validateCheckout()">
 
-                <!-- Section 1: Shipping Address -->
+                
                 <div class="section-header">
                     <span class="step-number">1</span> SHIPPING ADDRESS
                 </div>
@@ -54,7 +54,7 @@ include '../control/checkout_process.php';
                     </div>
                 </div>
 
-                <!-- Section 2: Payment Method -->
+                
                 <div class="section-header">
                     <span class="step-number">2</span> PAYMENT METHOD
                 </div>
@@ -75,7 +75,7 @@ include '../control/checkout_process.php';
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
+                
                 <div class="btn-group">
                     <a href="../view/cart.php" class="btn btn-secondary">CANCEL</a>
                     <input type="submit" name="place_order" value="PLACE ORDER" class="btn btn-primary">
@@ -85,7 +85,7 @@ include '../control/checkout_process.php';
 
         </div>
 
-        <!-- RIGHT: Order Review Sidebar -->
+        
         <div class="checkout-sidebar">
 
             <div class="section-header">
@@ -94,13 +94,13 @@ include '../control/checkout_process.php';
             <div class="card-no-pad">
                 <div class="card-body">
 
-                    <!-- Product column headers -->
+                    
                     <div class="summary-row" style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#888; font-weight:600;">
                         <span>Product</span>
                         <span>Subtotal</span>
                     </div>
 
-                    <!-- Each product -->
+                    
                     <?php foreach($cartItems as $item): ?>
                     <div class="order-product">
                         <img src="../public/uploads/<?php echo $item['image_path']; ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
@@ -114,7 +114,7 @@ include '../control/checkout_process.php';
 
                     <hr class="divider">
 
-                    <!-- Summary -->
+                    
                     <div class="summary-row">
                         <span>Subtotal</span>
                         <span>Tk <?php echo number_format($totalAmount, 2); ?></span>
@@ -127,7 +127,7 @@ include '../control/checkout_process.php';
                 </div>
             </div>
 
-            <!-- Disclaimers -->
+            
             <div class="disclaimers">
                 <h4>Checkout Disclaimers:</h4>
                 <p>1. No return or exchange shall be applicable for any discounted sale items.</p>
